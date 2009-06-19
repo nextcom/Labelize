@@ -1,0 +1,18 @@
+Labelize
+========
+
+Allows for a one sided one-to-one association where the database column resides on the "parent" table.  This would be most commonly used to label a  single instance out of a associated collection.  However, there is no restriction on the association and it can be used without an accompanying one-to-many or many-to-many association.  It simply is a way to tag some other model instance as an association with a specified label.
+
+
+Example
+=======
+
+class Company < ActiveRecord::Base
+  
+  has_many :employees
+  label_one_of_many :employees, :as => [ :president, :manager, :janitor ] 
+  
+end
+
+
+Copyright (c) 2009 David Souza, released under the MIT license
